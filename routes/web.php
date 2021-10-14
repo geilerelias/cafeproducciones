@@ -56,7 +56,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 Route::get('/services/{folder}', function ($folder) {
-    $directory = base_path() . '\\resources\\images\\services\\' . $folder;
+    $directory = base_path() . '/resources/images/services/' . $folder;
     $dirint = dir($directory);
     $images = array();
     while (($archivo = $dirint->read()) !== false) {
