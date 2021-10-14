@@ -58,6 +58,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 Route::get('/services/{id}', [ServiceController::class, 'getImages']);
 
 Route::get('storage/{folder}/{filename}', function ($folder, $filename) {
+
     try {
         $path = storage_path() . '/app/' . $folder . '/' . $filename;
 
