@@ -55,25 +55,33 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/services/{id}', [ServiceController::class, 'getImages']);
+Route::get('/services/{folder}', function ($folder) {
+    $directory = base_path() . '\\resources\\images\\services\\' . $folder;
+    $dirint = dir($directory);
+    $images = array();
+    while (($archivo = $dirint->read()) !== false) {
+        if ($archivo != "." && $archivo != "..") {
+            array_push($images, $archivo);
+        }
+    }
+    $dirint->close();
+    return json_encode($images);
+});
 
-Route::get('storage/{folder}/{filename}', function ($folder, $filename) {
+Route::get('services/{folder}/{filename}', function ($folder, $filename) {
 
     try {
-        $path = storage_path() . '/app/' . $folder . '/' . $filename;
-
-        //si no se encuentra lanzamos un error 404.
-        if (!Storage::exists($folder . '/' . $filename)) {
-            abort(404);
-        }
+        $path = base_path() . '/resources/images/services/' . $folder . '/' . $filename;
+        //$path = storage_path() . '/app/' . $folder . '/' . $filename;
 
         $file = File::get($path);
         $type = File::mimeType($path);
 
         $response = Response::make($file, 200);
         $response->header("Content-Type", $type);
+
         return $response;
-    } catch (\Throwable $th) {
+    } catch (Throwable $th) {
         return $th->getMessage();
     }
 });

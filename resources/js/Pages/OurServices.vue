@@ -26,22 +26,20 @@
                     <v-col v-for="item in services" :key="item.id"
                            class="col-md-6 col-lg-3 col-12">
                         <v-card class="pa-2 secondary--text overline ">
-                            {{item.name}}
+                            {{ item.title }}
                         </v-card>
                     </v-col>
 
                 </v-row>
             </v-container>
         </v-sheet>
+        <v-sheet dark class="" v-for="(item,n) in services" :key="item.id">
+            <div class="d-flex flex-column flex-md-row" :class="{'flex-md-row-reverse':n%2===0}">
 
-        <v-sheet dark class="">
-            <div class="d-flex flex-column flex-md-row">
                 <div class="w-full w-md-half d-flex align-center">
                     <div class="pa-6 pa-md-12">
-                        <div class="text-uppercase font-weight-bold body-2 primary--text mb-2">
-                            Work with us
-                        </div>
-                        <h2 class="text-h3 text-lg-h2">Get your startup ready for business</h2>
+
+                        <h2 class="text-h3 text-lg-h2">{{ item.title }}</h2>
                         <div class="text-h6 text-lg-h5 mt-4">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit.
                             Natus impedit error labore doloremque fugit! Dolor fugit molestiae vero quos quisquam nobis,
@@ -55,59 +53,36 @@
                     </div>
                 </div>
                 <div class="w-full w-md-half">
-                    <lightbox :items="images" :cells="3"></lightbox>
+                    <lightbox :items="item.images" :cells="3"></lightbox>
                 </div>
             </div>
         </v-sheet>
 
-        <v-sheet dark class="">
-            <div class="d-flex flex-column flex-md-row flex-md-row-reverse">
-                <div class="w-full w-md-half d-flex align-center">
-                    <div class="pa-6 pa-md-12">
-                        <div class="text-uppercase font-weight-bold body-2 primary--text mb-2">
-                            Work with us
-                        </div>
-                        <h2 class="text-h3 text-lg-h2">Get your startup ready for business</h2>
-                        <div class="text-h6 text-lg-h5 mt-4">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Natus impedit error labore doloremque fugit! Dolor fugit molestiae vero quos quisquam nobis,
-                            eos debitis magni omnis ea incidunt amet voluptate dignissimos!
-                        </div>
-                        <div class="mt-7">
-                            <v-btn outlined tile dark large class="">
-                                Get in touch
-                            </v-btn>
-                        </div>
-                    </div>
-                </div>
-                <div class="w-full w-md-half">
-                    <lightbox :items="images"></lightbox>
-                </div>
-            </div>
-        </v-sheet>
 
-        <div class="v-sheet theme--light">
-            <div class="container py-8">
+        <v-sheet light>
+            <v-container class="container py-8">
                 <div class="text-center">
                     <div>
-                        <div class="text-h3 primary--text">Ready to talk?</div>
-                        <div class="text-h3 mt-1">Our team is here to help.</div>
+                        <div class="text-h3 primary--text">¿Quieres hablar con nosotros?</div>
+                        <div class="text-h3 mt-1">Nuestro equipo esta aqui para ayudar.</div>
                     </div>
-                    <div class="mt-4"><a href="/ui/examples/landing/landing1#"
-                                         class="my-1 w-full w-sm-auto v-btn v-btn--is-elevated v-btn--has-bg v-btn--router theme--light v-size--x-large"><span
-                        class="v-btn__content">Learn More</span>
-                    </a>
-                        <a href="/ui/examples/landing/landing1#"
-                           class="my-1 mx-sm-2 w-full w-sm-auto v-btn v-btn--is-elevated v-btn--has-bg v-btn--router theme--light v-size--x-large primary">
-                        <span
-                            class="v-btn__content">Contact Sales</span>
-                        </a>
+                    <div class="mt-4">
+                        <inertia-link href="/about-us">
+                            <v-btn elevated x-large
+                                   class="my-1 w-full w-sm-auto">
+                                Saber más
+                            </v-btn>
+                        </inertia-link>
+                        <inertia-link href="/contact-us">
+                            <v-btn elevated x-large
+                                   class="my-1 mx-sm-2 w-full w-sm-auto primary">
+                                Contactanos
+                            </v-btn>
+                        </inertia-link>
                     </div>
-                    <div class="mt-3"><a href="/ui/examples/landing/landing1#" class="">Get started now with a FREE
-                        trial</a></div>
                 </div>
-            </div>
-        </div>
+            </v-container>
+        </v-sheet>
     </page-layout>
 </template>
 
@@ -123,43 +98,106 @@ export default {
     },
     data: () => ({
         services: [
-            {name: "Transmisión de eventos en vivo o diferido", description: '', src: ''},
-            {name: "Sonido para auditorios y exteriores", description: '', src: ''},
-            {name: "Montaje de todo tipo de evento", description: '', src: ''},
-            {name: "Pirotecnia de escenarios y aéreas", description: '', src: ''},
-            {name: "Vallas de contención de publico", description: '', src: ''},
-            {name: "Personal logístico", description: '', src: ''},
-            {name: "Carpas, Sillas, Mesas, Computadores impresoras", description: '', src: ''},
-            {name: "Filmación en general - Entrevistas", description: '', src: ''},
-            {name: "Refrigerios", description: '', src: ''},
-            {name: "Pantallas", description: '', src: ''},
-            {name: "Iluminación", description: '', src: ''},
-            {name: "Piso led", description: '', src: ''},
-            {name: "Escenografías", description: '', src: ''},
+            {name: 'transmision', title: "Transmisión de eventos en vivo o diferido", description: '', images: []},
+            {name: 'sonido', title: "Sonido para auditorios y exteriores", description: '', images: []},
+            {name: 'montaje', title: "Montaje de todo tipo de evento", description: '', images: []},
+            {name: 'pirotecnia', title: "Pirotecnia de escenarios y aéreas", description: '', images: []},
+            {name: 'vallas', title: "Vallas de contención de publico", description: '', images: []},
+            {name: 'personal', title: "Personal logístico", description: '', images: []},
+            {
+                name: 'moviliarios',
+                title: "Carpas, Sillas, Mesas, Computadores impresoras",
+                description: '',
+                images: []
+            },
+            {name: 'filmacion', title: "Filmación en general - Entrevistas", description: '', images: []},
+            {name: 'refrigerios', title: "Refrigerios", description: '', images: []},
+            {name: 'pantallas', title: "Pantallas", description: '', images: []},
+            {name: 'iluminacion', title: "Iluminación", description: '', images: []},
+            {name: 'piso-led', title: "Piso led", description: '', src: ''},
+            {name: 'escenografia', title: "Escenografías", description: '', images: []},
+
         ],
         images: [
-            "https://i.wifegeek.com/200426/f9459c52.jpg",
-            "https://i.wifegeek.com/200426/5ce1e1c7.jpg",
-            "https://i.wifegeek.com/200426/5fa51df3.jpg",
-            "https://i.wifegeek.com/200426/663181fe.jpg",
-            "https://i.wifegeek.com/200426/2d110780.jpg",
-            "https://i.wifegeek.com/200426/e73cd3fa.jpg",
-            "https://i.wifegeek.com/200426/15160d6e.jpg",
-            "https://i.wifegeek.com/200426/d0c881ae.jpg",
-            "https://i.wifegeek.com/200426/a154fc3d.jpg",
-            "https://i.wifegeek.com/200426/71d3aa60.jpg",
-            "https://i.wifegeek.com/200426/d17ce9a0.jpg",
-            "https://i.wifegeek.com/200426/7c4deca9.jpg",
-            "https://i.wifegeek.com/200426/64672676.jpg",
-            "https://i.wifegeek.com/200426/de6ab9c6.jpg",
-            "https://i.wifegeek.com/200426/d8bcb6a7.jpg",
-            "https://i.wifegeek.com/200426/4085d03b.jpg",
-            "https://i.wifegeek.com/200426/177ef44c.jpg",
-            "https://i.wifegeek.com/200426/d74d9040.jpg",
-            "https://i.wifegeek.com/200426/81e24a47.jpg",
-            "https://i.wifegeek.com/200426/43e2e8bb.jpg"
+            "/services/vallas/01.jpg",
+            "/services/vallas/02.jpg",
+            "/services/vallas/03.jpg",
+            "/services/vallas/04.jpg",
+            // "https://i.wifegeek.com/200426/f9459c52.jpg",
+            // "https://i.wifegeek.com/200426/5ce1e1c7.jpg",
+            // "https://i.wifegeek.com/200426/5fa51df3.jpg",
+            // "https://i.wifegeek.com/200426/663181fe.jpg",
+            // "https://i.wifegeek.com/200426/2d110780.jpg",
+            // "https://i.wifegeek.com/200426/e73cd3fa.jpg",
+            // "https://i.wifegeek.com/200426/15160d6e.jpg",
+            // "https://i.wifegeek.com/200426/d0c881ae.jpg",
+            // "https://i.wifegeek.com/200426/a154fc3d.jpg",
+            // "https://i.wifegeek.com/200426/71d3aa60.jpg",
+            // "https://i.wifegeek.com/200426/d17ce9a0.jpg",
+            // "https://i.wifegeek.com/200426/7c4deca9.jpg",
+            // "https://i.wifegeek.com/200426/64672676.jpg",
+            // "https://i.wifegeek.com/200426/de6ab9c6.jpg",
+            // "https://i.wifegeek.com/200426/d8bcb6a7.jpg",
+            // "https://i.wifegeek.com/200426/4085d03b.jpg",
+            // "https://i.wifegeek.com/200426/177ef44c.jpg",
+            // "https://i.wifegeek.com/200426/d74d9040.jpg",
+            // "https://i.wifegeek.com/200426/81e24a47.jpg",
+            // "https://i.wifegeek.com/200426/43e2e8bb.jpg"
         ],
-    })
+    }),
+    computed: {
+        allservices: {
+            get() {
+                return this.services;
+            },
+            set(x) {
+                this.services = x;
+            }
+        },
+    },
+    created() {
+
+        var lista = [];
+        for (let i = 0; i < this.services.length; i++) {
+            let folder = this.services[i].name;
+            console.log(folder)
+            axios
+                .get(`/services/${folder}`)
+                .then(response => {
+                    lista = response.data;
+                    var images = [];
+                    for (let i = 0; i < lista.length; i++) {
+                        images.push(`/services/${folder}/${lista[i]}`);
+                        console.log(`/services/${folder}/${lista[i]}`)
+                    }
+                    this.services[i].images = images;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+
+    },
+    methods: {
+        getImages(folder) {
+            var images = [];
+            var lista = [];
+            console.log(folder)
+            axios
+                .get(`/services/${folder}`)
+                .then(response => {
+                    lista = response.data;
+                    for (let i = 0; i < lista.length; i++) {
+                        images.push(`/storage/${folder}/${lista[i]}`);
+                        console.log(`/storage/${folder}/${lista[i]}`)
+                    }
+                    return images;
+                })
+                .catch(error => {
+                    console.log(error);
+                });
+        }
+    }
 }
 </script>
 
