@@ -7,8 +7,12 @@ use App\Actions\Jetstream\CreateTeam;
 use App\Actions\Jetstream\DeleteTeam;
 use App\Actions\Jetstream\DeleteUser;
 use App\Actions\Jetstream\UpdateTeamName;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Jetstream\Jetstream;
+
+use Inertia\Inertia;
+use Laravel\Fortify\Fortify;
 
 class JetstreamServiceProvider extends ServiceProvider
 {
@@ -29,6 +33,17 @@ class JetstreamServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Fortify::loginView(function () {
+            return Inertia::render('Auth/Login', [
+                'canResetPassword' => Route::has('password.request'),
+                'status' => session('status'),
+            ]);
+        });
+
+        Fortify::registerView(function () {
+            return Inertia::render('Auth/Register');
+        });
+
         $this->configurePermissions();
 
         Jetstream::createTeamsUsing(CreateTeam::class);
