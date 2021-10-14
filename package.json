@@ -1,0 +1,43 @@
+{
+    "private": true,
+    "scripts": {
+        "dev": "npm run development",
+        "development": "mix",
+        "watch": "mix watch",
+        "watch-poll": "mix watch -- --watch-options-poll=1000",
+        "hot": "mix watch --hot",
+        "prod": "npm run production",
+        "production": "mix --production"
+    },
+    "devDependencies": {
+        "@inertiajs/inertia": "^0.3.0",
+        "@inertiajs/inertia-vue": "^0.2.0",
+        "@tailwindcss/ui": "^0.6.0",
+        "axios": "^0.21",
+        "file-loader": "^6.2.0",
+        "laravel-jetstream": "^0.0.3",
+        "laravel-mix": "^6.0.6",
+        "lodash": "^4.17.19",
+        "moment": "^2.26.0",
+        "portal-vue": "^2.1.7",
+        "postcss": "^8.1.14",
+        "postcss-import": "^12.0.1",
+        "tailwindcss": "^1.8.0",
+        "vue": "^2.6.14",
+        "vue-loader": "^15.9.8",
+        "vue-template-compiler": "^2.6.14"
+    },
+    "dependencies": {
+        "@inertiajs/progress": "^0.1.2",
+        "@mdi/font": "^5.9.55",
+        "@morioh/v-lightbox": "^1.0.3",
+        "bootstrap": "^4.6.0",
+        "bootstrap-vue": "^2.21.2",
+        "v-video-embed": "^1.0.8",
+        "vue-picture-input": "^2.1.6",
+        "vue-sweetalert2": "^5.0.2",
+        "vue2-perfect-scrollbar": "^1.5.2",
+        "vuetify": "^2.5.9",
+        "vuex": "^3.6.2"
+    }
+}
