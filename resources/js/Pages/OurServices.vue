@@ -25,7 +25,7 @@
                 <v-row dense>
                     <v-col v-for="item in services" :key="item.id"
                            class="col-md-6 col-lg-3 col-12">
-                        <v-card class="pa-2 secondary--text overline ">
+                        <v-card class="pa-2 secondary--text overline" :href="`#${item.name}`">
                             {{ item.title }}
                         </v-card>
                     </v-col>
@@ -33,7 +33,7 @@
                 </v-row>
             </v-container>
         </v-sheet>
-        <v-sheet dark class="" v-for="(item,n) in services" :key="item.id">
+        <v-sheet class="" v-for="(item,n) in services" :key="item.id" :id="item.name">
             <div class="d-flex flex-column flex-md-row" :class="{'flex-md-row-reverse':n%2===0}">
 
                 <div class="w-full w-md-half d-flex align-center">
@@ -41,14 +41,10 @@
 
                         <h2 class="text-h3 text-lg-h2">{{ item.title }}</h2>
                         <div class="text-h6 text-lg-h5 mt-4">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Natus impedit error labore doloremque fugit! Dolor fugit molestiae vero quos quisquam nobis,
-                            eos debitis magni omnis ea incidunt amet voluptate dignissimos!
-                        </div>
-                        <div class="mt-7">
-                            <v-btn outlined tile dark large class="">
-                                Get in touch
-                            </v-btn>
+                            {{ item.description }}
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores beatae consequuntur
+                            dolore eveniet expedita impedit inventore iure iusto maiores maxime, molestiae nihil,
+                            provident quae repellat saepe sapiente tempore totam, unde.
                         </div>
                     </div>
                 </div>
@@ -57,7 +53,6 @@
                 </div>
             </div>
         </v-sheet>
-
 
         <v-sheet light>
             <v-container class="container py-8">
@@ -69,13 +64,13 @@
                     <div class="mt-4">
                         <inertia-link href="/about-us">
                             <v-btn elevated x-large
-                                   class="my-1 w-full w-sm-auto">
+                                   class="my-1 ">
                                 Saber más
                             </v-btn>
                         </inertia-link>
                         <inertia-link href="/contact-us">
                             <v-btn elevated x-large
-                                   class="my-1 mx-sm-2 w-full w-sm-auto primary">
+                                   class="my-1 mx-sm-2  primary">
                                 Contactanos
                             </v-btn>
                         </inertia-link>
@@ -83,6 +78,7 @@
                 </div>
             </v-container>
         </v-sheet>
+
     </page-layout>
 </template>
 

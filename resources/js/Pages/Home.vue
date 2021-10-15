@@ -107,13 +107,12 @@
                 todo tipo de evento, con alta experiencia a nivel Nacional, ofreciéndole gran calidad, inspección y
                 extremado profesionalismo con más de 5 años de experiencia en el Área.
 
-                Disponemos de todo tipo de mobiliario
-                le ofrecemos todo tipo de decoración, tipos de escenarios, centros de mesa, montajes de Stands entre
+                Disponemos de una gran variedad de mobiliario
+                le ofrecemos diversas decoración, arquetipos de escenarios, centros de mesa, montajes de Stands entre
                 otros.
 
                 Poseemos todo lo concerniente al entretenimiento de su evento.
-                tenemos los dispositivos tecnológicos para Audio, Sonido y Luces de todo tipo.
-
+                tenemos los dispositivos tecnológicos para Audio, Sonido y Luces de múltiples categorías.
             </v-container>
         </section>
 
