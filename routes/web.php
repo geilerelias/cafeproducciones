@@ -39,9 +39,9 @@ Route::get('/our-services', function () {
     return Inertia\Inertia::render('OurServices');
 })->name('our-services');
 
-Route::get('/gallery', function () {
+Route::get('/our-gallery', function () {
     return Inertia\Inertia::render('Gallery');
-})->name('gallery');
+})->name('our-gallery');
 
 Route::get('/contact-us', function () {
     return Inertia\Inertia::render('ContactUs');
@@ -50,6 +50,18 @@ Route::get('/contact-us', function () {
 Route::get('/example', function () {
     return Inertia\Inertia::render('Example');
 })->name('example');
+
+Route::get('/notices', function () {
+    return Inertia\Inertia::render('Notices/Index');
+})->name('notices');
+
+Route::get('/services', function () {
+    return Inertia\Inertia::render('Services/Index');
+})->name('services');
+
+Route::get('/gallery', function () {
+    return Inertia\Inertia::render('Gallery/Index');
+})->name('gallery');
 
 
 Route::resource('posts', PostController::class);

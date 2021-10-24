@@ -6,7 +6,7 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
     state: {
         drawer: null,
-        expand:false,
+        expand: false,
         links: [
             {
                 route: "home",
@@ -41,6 +41,9 @@ const store = new Vuex.Store({
         ],
         linksWithAuth: [
             {route: "dashboard", icon: 'mdi-view-dashboard', title: "Dashboard"},
+            {route: "notices", icon: 'mdi-bulletin-board', title: "Noticias"},
+            {route: "services", icon: 'mdi-face-agent', title: "Servicios"},
+            {route: "gallery", icon: 'mdi-movie-play-outline', title: "Galería"},
         ]
     },
     getters: {

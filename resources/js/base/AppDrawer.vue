@@ -2,7 +2,7 @@
     <v-navigation-drawer
         v-model="localDrawer"
         app
-        :permanent="expand"
+        :permanent="$vuetify.breakpoint.mdAndUp"
         :expand-on-hover="expand"
         style="box-shadow: #00000033 -20px 1px 17px 8px, #00000024 0px 2px 2px 0px, #0000001f 0px 1px 5px 0px;">
         <perfect-scrollbar>
@@ -11,14 +11,8 @@
                     <v-list-item-content>
                         <v-list-item-title class="text-uppercase font-weight-regular subtitle-1 mx-auto">
 
-                            <inertia-link v-if="expand"
-                                          class="font-weight-black font-weight-bold primary--text text-center mx-auto"
-                                          href="/">
-                                CP
-                            </inertia-link>
-
                             <inertia-link
-                                class="font-weight-black font-weight-bold ml-1  primary--text"
+                                class="font-weight-black font-weight-bold primary--text"
                                 href="/">
                                 CaFe Producciones
                             </inertia-link>

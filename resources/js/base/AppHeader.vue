@@ -90,17 +90,21 @@
             </div>
 
             <v-app-bar-nav-icon
-                class="hidden-md-and-up white--text"
+                class="hidden-md-and-up"
                 @click="drawer?setDrawer(false):setDrawer(true)"
             ></v-app-bar-nav-icon>
+
             <settings-dropdown></settings-dropdown>
-            <v-btn icon  @click="expand?setExpand(false):setExpand(true)">
+
+            <v-btn icon v-if="$vuetify.breakpoint.mdAndUp"
+                   @click="expand?setExpand(false):setExpand(true)">
                 <v-icon v-text="expand?'mdi-view-list-outline':'mdi-dots-vertical'"></v-icon>
             </v-btn>
 
         </v-app-bar>
 
         <v-btn
+
             v-show="fab"
             v-scroll="onScroll"
             bottom

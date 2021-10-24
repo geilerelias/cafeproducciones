@@ -1,10 +1,8 @@
 <template>
     <app-layout>
-        <bread-crumbs name="Dashboard" :items="items"></bread-crumbs>
+        <bread-crumbs name="Noticias" :items="items"></bread-crumbs>
         <v-container>
-            <v-btn>
-                gestion de noticias
-            </v-btn>
+
         </v-container>
     </app-layout>
 </template>
@@ -23,17 +21,12 @@ export default {
             {
                 text: 'Dashboard',
                 disabled: false,
-                href: 'breadcrumbs_dashboard',
+                href: '/dashboard',
             },
             {
-                text: 'Link 1',
-                disabled: false,
-                href: 'breadcrumbs_link_1',
-            },
-            {
-                text: 'Link 2',
+                text: 'Noticias',
                 disabled: true,
-                href: 'breadcrumbs_link_2',
+                href: '/notices',
             },
         ],
     })
