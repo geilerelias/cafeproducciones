@@ -5,7 +5,8 @@ Vue.use(Vuex);
 
 const store = new Vuex.Store({
     state: {
-        drawer: false,
+        drawer: null,
+        expand:false,
         links: [
             {
                 route: "home",
@@ -40,20 +41,22 @@ const store = new Vuex.Store({
         ],
         linksWithAuth: [
             {route: "dashboard", icon: 'mdi-view-dashboard', title: "Dashboard"},
-            {route: "category.index", icon: 'mdi-briefcase', title: "Category"},
-            {route: "business.list", icon: 'mdi-store', title: "Business"},
-            {route: "subcategory.index", icon: 'mdi-ballot', title: "Subategory"},
-            {route: "product.index", icon: 'mdi-cart', title: "Product"},
         ]
     },
     getters: {
         getDrawer(state) {
             return state.drawer;
         },
+        getExpand(state) {
+            return state.expand;
+        },
     },
     mutations: {
         setDrawer(state, v) {
             state.drawer = v;
+        },
+        setExpand(state, v) {
+            state.expand = v;
         },
     },
 });

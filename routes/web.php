@@ -1,7 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +51,9 @@ Route::get('/example', function () {
     return Inertia\Inertia::render('Example');
 })->name('example');
 
+
+Route::resource('posts', PostController::class);
+Route::resource('products', ProductController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
