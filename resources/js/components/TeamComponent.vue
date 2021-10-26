@@ -59,7 +59,7 @@ export default {
             {
                 name: 'Carmen Barros Diaz',
                 src: carmenbarros,
-                ocupation: 'Fundador - CEO - Gerente ',
+                ocupation: 'Fundador - CEO -Gerente',
                 perfil: ''
             },
             {
@@ -71,13 +71,13 @@ export default {
             {
                 name: 'Ferney Barros Diaz',
                 src: ferneybarros,
-                ocupation: 'Fundador - Administrador general',
+                ocupation: 'Fundador - Coordinador general',
                 perfil: ''
             },
             {
                 name: 'Geiler Radillo Sarmiento',
                 src: geilerradillo,
-                ocupation: 'Desarrollador',
+                ocupation: 'Desarrollador - Coordinador',
                 perfil: ''
             },
 

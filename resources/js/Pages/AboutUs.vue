@@ -65,18 +65,18 @@
             <v-sheet class="">
                 <v-container class=" gray py-4 py-lg-8">
                     <div>
-                        <div class="mb-12">
-                            <h1 class="text-h5 font-weight-bold mb-2">
-                                Misión y visión
-                            </h1>
-                            <v-responsive class="primary  mb-6" style="max-width: 28px;">
-                                <v-divider role="separator" aria-orientation="horizontal" class=" theme--light"/>
-                            </v-responsive>
-                        </div>
+
 
                         <v-row>
                             <v-col class="col-lg-6 col-12">
-                                <h2 class="text-h5 font-weight-bold">Misión</h2>
+                                <div class="mb-6">
+                                    <h1 class="text-h5 font-weight-bold mb-2">
+                                        Misión
+                                    </h1>
+                                    <v-responsive class="primary  mb-2" style="max-width: 28px;">
+                                        <v-divider role="separator" aria-orientation="horizontal" class=" theme--light"/>
+                                    </v-responsive>
+                                </div>
                                 <div class="text-lg-h6 mt-5">
                                     Brindar a todos nuestros clientes una experiencia única e innovadora en cada uno de
                                     sus
@@ -85,7 +85,14 @@
                             </v-col>
 
                             <v-col class="col-lg-6 col-12">
-                                <h2 class="text-h5 font-weight-bold">Visión</h2>
+                                <div class="mb-6">
+                                    <h1 class="text-h5 font-weight-bold mb-2">
+                                        Visión
+                                    </h1>
+                                    <v-responsive class="primary  mb-2" style="max-width: 28px;">
+                                        <v-divider role="separator" aria-orientation="horizontal" class=" theme--light"/>
+                                    </v-responsive>
+                                </div>
                                 <div class=" text-lg-h6 mt-5">
                                     Ser la empresa líder en el mercado de producción y logística para todo tipo
                                     eventos.

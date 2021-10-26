@@ -4,7 +4,7 @@
         <section style="margin-top: -64px;">
             <v-sheet>
                 <v-img :src="bg6"
-                       gradient="to top, rgba(13, 3, 29, 0.85), rgba(25, 25, 38, 0.85)"
+                       gradient="to top, rgb(13 3 29 / 64%), rgb(25 25 38 / 65%)"
                        :height="'90vh'">
                     <div class=" fill-height">
                         <v-responsive class="d-flex align-end  fill-height"
@@ -169,114 +169,47 @@
                 <p class="text-body-1 mx-auto grey--text text--darken-1 text-center mb-10"
                    style="max-width: 700px;">
                     estas son algunas de noticias de nuestros ultimos acontecimientos.
-                </p></div>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-12">
-                        <div><a href="/news/lorem-ipsum-dolor-sit-amet-consectetur" class="d-block">
-                            <div class="v-image v-responsive theme--light" flat="" tile="" height="250"
-                                 src="/img/article-1.bfc29386.jpg" style="height: 250px;">
-                                <div class="v-responsive__sizer" style="padding-bottom: 66.5625%;"></div>
-                                <div class="v-image__image v-image__image--cover"
-                                     style="background-image: url(&quot;https://zero-theme-pro.vuetifyjs.com/img/article-1.bfc29386.jpg&quot;); background-position: center center;"></div>
-                                <div class="v-responsive__content" style="width: 640px;">
-                                    <div class="row ma-0 fill-height align-end justify-end">
-                                        <div
-                                            class="pa-2 d-inline-flex align-center justify-center v-sheet theme--dark rounded-0 primary"
-                                            style="height: 40px; width: 40px;"><i aria-hidden="true"
-                                                                                  class="v-icon notranslate mdi mdi-image theme--dark"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                            <div class="d-flex v-sheet theme--dark rounded-0" style="max-width: 100%;">
+                </p>
+            </div>
+            <v-container>
+                <v-row>
+                    <v-col class="col-md-4 col-12" v-for="item in notices" :key="item.id">
+                        <div>
+                            <a :href="item.link" class="d-block" target="_blank">
+                                <v-img flat tile cover height="250"
+                                       :src="item.src" style="height: 250px;">
+                                    <v-row class="ma-0 fill-height align-end justify-end">
+                                        <v-sheet
+                                            class="pa-2 d-inline-flex align-center justify-center  theme--dark rounded-0 primary"
+                                            style="height: 40px; width: 40px;">
+                                            <v-icon dark>
+                                                mdi-image
+                                            </v-icon>
+                                        </v-sheet>
+                                    </v-row>
+                                </v-img>
+                            </a>
+                            <v-sheet class="d-flex  theme--dark rounded-0" style="max-width: 100%;">
                                 <div class="grow pa-2 body-2">
-                                    <div class="d-flex align-center fill-height"><span class="px-2">Jan 12, 2020</span>
-                                        / <span class="px-2">Design</span> / <span class="px-2">5 Comments</span></div>
+                                    <div class="d-flex align-center fill-height">
+                                        <span class="px-2">{{item.date}}</span>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="pa-4"><h3
-                                class="text-truncate text-uppercase text-h6 font-weight-bold mb-4 text-left"> Lorem
-                                ipsum dolor, sit amet consectetur </h3>
+                            </v-sheet>
+
+                            <div class="pa-4">
+                                <h3 class="text-truncate text-uppercase text-h6 font-weight-bold mb-4 text-left">
+                                    {{item.title}}
+                                </h3>
                                 <p class="base-body text-body-1 grey--text text--darken-1 text-left mb-0">
-                                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur, nulla voluptas
-                                    sed[...]
-                                </div>
-                                </p></div><!----><!----></div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div><a href="/news/lorem-ipsum-dolor-sit-amet-consectetur" class="d-block">
-                            <div class="v-image v-responsive theme--light" flat="" tile="" height="250"
-                                 src="/img/article-2.48ca80f7.jpg" style="height: 250px;">
-                                <div class="v-responsive__sizer" style="padding-bottom: 66.0938%;"></div>
-                                <div class="v-image__image v-image__image--cover"
-                                     style="background-image: url(&quot;https://zero-theme-pro.vuetifyjs.com/img/article-2.48ca80f7.jpg&quot;); background-position: center center;"></div>
-                                <div class="v-responsive__content" style="width: 640px;">
-                                    <div class="row ma-0 fill-height align-end justify-end">
-                                        <div
-                                            class="pa-2 d-inline-flex align-center justify-center v-sheet theme--dark rounded-0 primary"
-                                            style="height: 40px; width: 40px;"><i aria-hidden="true"
-                                                                                  class="v-icon notranslate mdi mdi-play theme--dark"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                            <div class="d-flex v-sheet theme--dark rounded-0" style="max-width: 100%;">
-                                <div class="grow pa-2 body-2">
-                                    <div class="d-flex align-center fill-height"><span class="px-2">Oct 19, 2019</span>
-                                        / <span class="px-2">Strategy</span> / <span class="px-2">8 Comments</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pa-4"><h3
-                                class="text-truncate text-uppercase text-h6 font-weight-bold mb-4 text-left"> Lorem
-                                ipsum dolor, sit amet consectetur </h3>
-                                <p class="base-body text-body-1 grey--text text--darken-1 text-left mb-0">
-                                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur, nulla voluptas
-                                    sed[...]
-                                </div>
-                                </p></div><!----><!----></div>
-                    </div>
-                    <div class="col-md-4 col-12">
-                        <div><a href="/news/lorem-ipsum-dolor-sit-amet-consectetur" class="d-block">
-                            <div class="v-image v-responsive theme--light" flat="" tile="" height="250"
-                                 src="/img/article-3.31c0885e.jpg" style="height: 250px;">
-                                <div class="v-responsive__sizer" style="padding-bottom: 66.7188%;"></div>
-                                <div class="v-image__image v-image__image--cover"
-                                     style="background-image: url(&quot;https://zero-theme-pro.vuetifyjs.com/img/article-3.31c0885e.jpg&quot;); background-position: center center;"></div>
-                                <div class="v-responsive__content" style="width: 640px;">
-                                    <div class="row ma-0 fill-height align-end justify-end">
-                                        <div
-                                            class="pa-2 d-inline-flex align-center justify-center v-sheet theme--dark rounded-0 primary"
-                                            style="height: 40px; width: 40px;"><i aria-hidden="true"
-                                                                                  class="v-icon notranslate mdi mdi-text theme--dark"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                            <div class="d-flex v-sheet theme--dark rounded-0" style="max-width: 100%;">
-                                <div class="grow pa-2 body-2">
-                                    <div class="d-flex align-center fill-height"><span class="px-2">Jul 24, 2019</span>
-                                        / <span class="px-2">Business</span> / <span class="px-2">13 Comments</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="pa-4"><h3
-                                class="text-truncate text-uppercase text-h6 font-weight-bold mb-4 text-left"> Lorem
-                                ipsum dolor, sit amet consectetur </h3>
-                                <p class="base-body text-body-1 grey--text text--darken-1 text-left mb-0">
-                                <div>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur, nulla voluptas
-                                    sed[...]
-                                </div>
+                                    {{item.description}}
                                 </p>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </v-col>
+
+                </v-row>
+            </v-container>
         </v-sheet>
     </page-layout>
 </template>
@@ -285,6 +218,9 @@
 import bg6 from '@/../images/bg/6.jpg';
 import logo from '@/../images/logoCircular.png'
 import team from '@/../images/IMG-20210703-WA0006.jpg'
+import jovenEligeJoven from '@/../images/gallery/joveneligejoven.jpg'
+import eventoOim from '@/../images/gallery/eventooim.jpg'
+import guerraDj from '@/../images/gallery/guerradj.jpg'
 import PageLayout from "@/Layouts/PageLayout";
 import TeamComponent from "@/components/TeamComponent";
 
@@ -341,6 +277,32 @@ export default {
                     'La colaboración con el cliente sobre negociación contractual.'
             },
         ],
+        notices: [
+            {
+                title: 'Joven elige Joven',
+                description: `llevamos a cabo en su totalidad el evento Joven Elige Joven elecciones Concejos de
+                      juventud 2021, el mejor equipo de trabajo y la mejor empresa de producción.
+                    #cafeproducciones`,
+                date: 'Oct 23, 2021',
+                src: jovenEligeJoven,
+                link: 'https://www.instagram.com/p/CVfwRpgJKfy/'
+            },
+            {
+                title: 'Jornada de actualización en lineamientos con OIM',
+                description: `Apoyo al personal por ingenieros, Acompañamiento logistico, soporte tecnico, alimentación, entre otros, en la jornada de actualización en lineamientos del programa ampliado de inmunizaciones a refrentes PAI La Guajira con énfasis en flujos migratorios mixtos, el mejor equipo de trabajo y la mejor empresa de producción. #cafeproducciones`,
+                date: 'Oct 19-20-21, 2021',
+                src: eventoOim,
+                link: 'https://www.instagram.com/p/CVgTakLPD3v/?utm_source=ig_web_button_share_sheet'
+            },
+            {
+                title: 'Guerra de DJ',
+                description: `Produccion y adecuación de escenarios, el mejor equipo de trabajo y la mejor empresa de producción.
+            #cafeproducciones`,
+                date: 'Oct 16, 2021',
+                src: guerraDj,
+                link: '#'
+            }
+        ]
     })
 }
 </script>

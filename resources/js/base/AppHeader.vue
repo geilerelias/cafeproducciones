@@ -32,7 +32,7 @@
                 </div>
 
             </v-system-bar>-->
-    <div>
+    <div style="z-index: 10">
         <v-app-bar app
                    :class="$vuetify.breakpoint.mdAndUp?'px-20':''"
                    color="white">

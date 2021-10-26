@@ -26,12 +26,12 @@ const store = new Vuex.Store({
                 title: "Nuestros Servicios",
                 submenu: false
             },
-            // {
-            //     route: "gallery",
-            //     icon: "mdi-movie-play-outline",
-            //     title: "Galería",
-            //     submenu: false
-            // },
+            {
+                route: "our-gallery",
+                icon: "mdi-movie-play-outline",
+                title: "Galería",
+                submenu: false
+            },
             {
                 route: "contact-us",
                 icon: "mdi-card-account-phone-outline",

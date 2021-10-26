@@ -40,7 +40,7 @@ Route::get('/our-services', function () {
 })->name('our-services');
 
 Route::get('/our-gallery', function () {
-    return Inertia\Inertia::render('Gallery');
+    return Inertia\Inertia::render('OurGallery');
 })->name('our-gallery');
 
 Route::get('/contact-us', function () {
@@ -71,8 +71,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/services/{folder}', function ($folder) {
-    $directory = base_path() . '/resources/images/services/' . $folder;
+Route::get('/{page}/{folder?}', function ($page,$folder) {
+    $directory = base_path() . '/resources/images/'.$page.'/' . $folder;
     $dirint = dir($directory);
     $images = array();
     while (($archivo = $dirint->read()) !== false) {
@@ -84,12 +84,19 @@ Route::get('/services/{folder}', function ($folder) {
     return json_encode($images);
 });
 
-Route::get('services/{folder}/{filename}', function ($folder, $filename) {
+Route::get('/user/{name?}/algo', function ($name = 'radillo') {
+    return $name;
+});
 
+Route::get('/src/{page}/{folder?}/{filename}', function ($page, $folder = "null", $filename) {
     try {
-        $path = base_path() . '/resources/images/services/' . $folder . '/' . $filename;
-        //$path = storage_path() . '/app/' . $folder . '/' . $filename;
-
+        $path = '';
+        if ($folder == "null") {
+            $path = base_path() . '/resources/images/' . $page . '/' . $filename;
+        } else {
+            $path = base_path() . '/resources/images/' . $page . '/' . $folder . '/' . $filename;
+            //$path = storage_path() . '/app/' . $folder . '/' . $filename;
+        }
         $file = File::get($path);
         $type = File::mimeType($path);
 
@@ -97,6 +104,8 @@ Route::get('services/{folder}/{filename}', function ($folder, $filename) {
         $response->header("Content-Type", $type);
 
         return $response;
+
+
     } catch (Throwable $th) {
         return $th->getMessage();
     }

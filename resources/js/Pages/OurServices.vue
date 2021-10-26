@@ -29,7 +29,6 @@
                             {{ item.title }}
                         </v-card>
                     </v-col>
-
                 </v-row>
             </v-container>
         </v-sheet>
@@ -58,18 +57,18 @@
             <v-container class="container py-8">
                 <div class="text-center">
                     <div>
-                        <div class="text-h3 primary--text">¿Quieres hablar con nosotros?</div>
-                        <div class="text-h3 mt-1">Nuestro equipo esta aqui para ayudar.</div>
+                        <div class=" primary--text">¿Quieres hablar con nosotros?</div>
+                        <div class=" mt-1">Nuestro equipo esta aqui para ayudar.</div>
                     </div>
                     <div class="mt-4">
                         <inertia-link href="/about-us">
-                            <v-btn elevated x-large
+                            <v-btn elevated
                                    class="my-1 ">
                                 Saber más
                             </v-btn>
                         </inertia-link>
                         <inertia-link href="/contact-us">
-                            <v-btn elevated x-large
+                            <v-btn elevated
                                    class="my-1 mx-sm-2  primary">
                                 Contactanos
                             </v-btn>
@@ -152,7 +151,6 @@ export default {
         },
     },
     created() {
-
         var lista = [];
         for (let i = 0; i < this.services.length; i++) {
             let folder = this.services[i].name;
@@ -163,8 +161,8 @@ export default {
                     lista = response.data;
                     var images = [];
                     for (let i = 0; i < lista.length; i++) {
-                        images.push(`/services/${folder}/${lista[i]}`);
-                        console.log(`/services/${folder}/${lista[i]}`)
+                        images.push(`/src/services/${folder}/${lista[i]}`);
+                        console.log(`/src/services/${folder}/${lista[i]}`)
                     }
                     this.services[i].images = images;
                 })

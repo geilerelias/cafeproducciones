@@ -7,6 +7,12 @@
         </v-main>
 
         <footer-component></footer-component>
+        <v-overlay :value="overlay">
+            <v-progress-circular
+                indeterminate
+                size="64"
+            ></v-progress-circular>
+        </v-overlay>
     </v-app>
 </template>
 
@@ -26,10 +32,13 @@ export default {
 
     data() {
         return {
+            overlay: true,
             showingNavigationDropdown: false,
         }
     },
-
+    mounted() {
+        this.overlay = false;
+    },
     methods: {
         switchToTeam(team) {
             this.$inertia.put(route('current-team.update'), {
