@@ -28,14 +28,14 @@
                                 evento
                             </span>
                         </h1>
-                        <h2 class="text-h6  secondary--text mt-4">
+                        <h2 class="text-h6  secondary--text mt-4 text-justify">
                             Somos tu empresa de acompañamiento en la logística de sus eventos, CaFe producciones Ofrece
                             nuestro portafolio de servicios para cubrir sus necesidades a nivel Local, Regional y
                             Nacional.
                         </h2>
 
                     </v-col>
-                    <div class="d-none d-md-block col-md-6 col-lg-5 col-12">
+                    <div class="col-md-6 col-lg-5 col-12">
                         <v-img :src="gifCafe"
                                cover
                                class="rounded-lg">

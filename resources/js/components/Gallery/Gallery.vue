@@ -15,14 +15,14 @@
             </template>
         </div>
         <nav class="gallery-controller">
-            <template v-for="(position, index) in positions">
-                <image-controller
-                    :index="index"
-                    :position="position"
-                    @center="center"
-                    @inverse="inverse"
-                />
-            </template>
+<!--            <template v-for="(position, index) in positions">-->
+<!--                <image-controller-->
+<!--                    :index="index"-->
+<!--                    :position="position"-->
+<!--                    @center="center"-->
+<!--                    @inverse="inverse"-->
+<!--                />-->
+<!--            </template>-->
             <v-row>
                 <v-col class="mt-2">
                     <v-btn icon @click="center(0)">
