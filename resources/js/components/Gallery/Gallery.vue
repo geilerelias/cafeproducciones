@@ -15,42 +15,35 @@
             </template>
         </div>
         <nav class="gallery-controller">
-<!--            <template v-for="(position, index) in positions">-->
-<!--                <image-controller-->
-<!--                    :index="index"-->
-<!--                    :position="position"-->
-<!--                    @center="center"-->
-<!--                    @inverse="inverse"-->
-<!--                />-->
-<!--            </template>-->
             <v-row>
                 <v-col class="mt-2">
-                    <v-btn icon @click="center(0)">
+                    <v-btn icon @click="center(index=0)">
                         <v-icon>
-                            mdi-skip-backward
-                        </v-icon>
-                    </v-btn>
-                    <v-btn icon @click="center(index-1)">
-                        <v-icon>
-                            mdi-skip-previous
+                            mdi-arrow-collapse-left
                         </v-icon>
                     </v-btn>
 
-                    <v-btn icon :class="{inverse:inverso==true}" class="primary" @click="inverse(index)">
+                    <v-btn icon @click="previus()">
+                        <v-icon>
+                            mdi-chevron-left
+                        </v-icon>
+                    </v-btn>
+
+                    <v-btn icon class="primary" :class="{inverse:inverso==true}"  @click="inverse(index)">
                         <v-icon class="white--text">
-                            mdi-sync
+                            mdi-orbit-variant
                         </v-icon>
                     </v-btn>
 
-                    <v-btn icon @click="center(positions.length-1>index+1?index+1:index)">
+                    <v-btn icon @click="next()">
                         <v-icon>
-                            mdi-skip-next
+                            mdi-chevron-right
                         </v-icon>
                     </v-btn>
 
-                    <v-btn icon @click="center(positions.length-1)">
+                    <v-btn icon @click="center(index=positions.length-1)">
                         <v-icon>
-                            mdi-skip-forward
+                            mdi-arrow-collapse-right
                         </v-icon>
                     </v-btn>
                 </v-col>
@@ -61,7 +54,6 @@
 
 <script>
 import ImageFigure from "./ImageFigure.vue"
-import ImageController from "./ImageController.vue"
 
 // let pictureDatas = [];
 // (function createPictures(pictureDatas) {
@@ -99,7 +91,6 @@ export default {
     },
     components: {
         ImageFigure,
-        ImageController
     },
     methods: {
         initPosition,
@@ -120,6 +111,16 @@ export default {
         center(index) {
             this.index = index;
             this.allocationPosition(index);
+        },
+        previus() {
+            if (0 <= this.index - 1)
+                this.index = this.index - 1;
+            this.center(this.index)
+        },
+        next() {
+            if (this.positions.length > this.index + 1)
+                this.index = this.index + 1;
+            this.center(this.index)
         }
     },
     created: function () {

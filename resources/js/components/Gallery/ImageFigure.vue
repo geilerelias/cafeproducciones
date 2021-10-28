@@ -1,6 +1,19 @@
 <template>
     <figure class="v-card v-sheet" :class="className" :style="styleObject" @click="handleClick">
-        <v-img :src="imageData.src" class="gallery-image " :alt="imageData.name"/>
+        <v-img :src="imageData.src" class="gallery-image v-card v-sheet v-sheet--outlined rounded-0" :alt="imageData.name">
+            <template v-slot:placeholder>
+                <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                >
+                    <v-progress-circular
+                        indeterminate
+                        color="primary"
+                    ></v-progress-circular>
+                </v-row>
+            </template>
+        </v-img>
         <figcaption class="image-title">
             {{imageData.title}}
         </figcaption>

@@ -92,12 +92,12 @@ export default {
             },
             {
                 "title": "Evento de lanzamiento",
-                "name": "caicedo.gif",
+                "name": "caicedo.jpg",
                 "description": "La Sonrisa del cliente al saber que superan todas las expectativas, el mejor equipo de trabajo y la mejor empresa de producción. #cafeproducciones"
             },
             {
                 "title": "Ferias de saberes PESNU3",
-                "name": "feriapesnu3.gif",
+                "name": "feriapesnu3.jpg",
                 "description": "La Sonrisa del cliente al saber que superan todas las expectativas, el mejor equipo de trabajo y la mejor empresa de producción. #cafeproducciones"
             },
             {
@@ -115,61 +115,6 @@ export default {
                 "name": "eventooim.jpg",
                 "description": "llevamos a cabo en su totalidad la jornada de actualización en lineamientos del programa ampliado de inmunizaciones a refrentes PAI La Guajira con énfasis en flujos migratorios mixtos , el mejor equipo de trabajo y la mejor empresa de producción. #cafeproducciones"
             },
-        ],
-        items2: [
-            {
-                "title": "朴素妍",
-                "name": "piaosuyan.png",
-                "description": "朴昭妍原名朴仁静，1987年10月5日出生于韩国京畿道安养市。2005年，就读于安养市艺术高等学校的朴昭妍，报名参加了韩国CMB频道的选秀节目《亲亲歌谣节》，获得了青少年歌谣比赛的金奖[19]  ；同年，朴昭妍进入韩国SM娱乐有限公司，成为练习生。"
-            },
-            {
-                "title": "朴智妍",
-                "name": "piaozhiyan.png",
-                "description": "朴智妍（Park Ji Yeon），1993年6月7日出生于韩国首尔，韩国女歌手、演员、主持人、模特，女子演唱团体T-ara成员之一。"
-            },
-            {
-                "title": "朴孝敏",
-                "name": "piaoxiaomin.png",
-                "description": "朴孝敏（Park Hyo Min），1989年5月30日出生于韩国釜山，毕业于成均馆大学，韩国女歌手、演员，女子演唱团体T-ara成员。"
-            },
-            {
-                "title": "咸恩静",
-                "name": "xianenjing.png",
-                "description": "咸恩静，1988年12月12日出生于韩国，韩国女歌手、演员，韩国女子组合T-ara第一任队长，队内担当，Rapper、领舞、主唱，毕业于韩国东国大学。"
-            },
-            {
-                "title": "李居丽",
-                "name": "lijuli.png",
-                "description": "李居丽（Lee Ji Hyun），1986年12月12日出生于韩国京畿道高阳市，毕业于明知大学视觉艺术及戏剧系，韩国女歌手、演员、模特，女子演唱团体T-ara成员兼队长。"
-            },
-            {
-                "title": "全宝蓝",
-                "name": "jinbaolan.png",
-                "description": "全宝蓝，1986年3月22日出生于韩国首尔，毕业于明知专门大学，韩国女歌手、演员、模特，女子演唱团体T-ara成员之一。"
-            },
-
-        ],
-        images: [
-            "https://i.wifegeek.com/200426/f9459c52.jpg",
-            "https://i.wifegeek.com/200426/5ce1e1c7.jpg",
-            "https://i.wifegeek.com/200426/5fa51df3.jpg",
-            "https://i.wifegeek.com/200426/663181fe.jpg",
-            "https://i.wifegeek.com/200426/2d110780.jpg",
-            "https://i.wifegeek.com/200426/e73cd3fa.jpg",
-            "https://i.wifegeek.com/200426/15160d6e.jpg",
-            "https://i.wifegeek.com/200426/d0c881ae.jpg",
-            "https://i.wifegeek.com/200426/a154fc3d.jpg",
-            "https://i.wifegeek.com/200426/71d3aa60.jpg",
-            "https://i.wifegeek.com/200426/d17ce9a0.jpg",
-            "https://i.wifegeek.com/200426/7c4deca9.jpg",
-            "https://i.wifegeek.com/200426/64672676.jpg",
-            "https://i.wifegeek.com/200426/de6ab9c6.jpg",
-            "https://i.wifegeek.com/200426/d8bcb6a7.jpg",
-            "https://i.wifegeek.com/200426/4085d03b.jpg",
-            "https://i.wifegeek.com/200426/177ef44c.jpg",
-            "https://i.wifegeek.com/200426/d74d9040.jpg",
-            "https://i.wifegeek.com/200426/81e24a47.jpg",
-            "https://i.wifegeek.com/200426/43e2e8bb.jpg"
         ],
     }),
 
