@@ -178,6 +178,18 @@
                             <a :href="item.link" class="d-block" target="_blank">
                                 <v-img flat tile cover height="250"
                                        :src="item.src" style="height: 250px;">
+                                    <template v-slot:placeholder>
+                                        <v-row
+                                            class="fill-height ma-0"
+                                            align="center"
+                                            justify="center"
+                                        >
+                                            <v-progress-circular
+                                                indeterminate
+                                                color="grey lighten-5"
+                                            ></v-progress-circular>
+                                        </v-row>
+                                    </template>
                                     <v-row class="ma-0 fill-height align-end justify-end">
                                         <v-sheet
                                             class="pa-2 d-inline-flex align-center justify-center  theme--dark rounded-0 primary"
@@ -211,6 +223,7 @@
                 </v-row>
             </v-container>
         </v-sheet>
+
     </page-layout>
 </template>
 

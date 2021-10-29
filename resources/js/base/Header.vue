@@ -7,8 +7,6 @@
             :class="flat&&route().current('home') ? 'bgTranparente' : 'white'"
             :flat="flat"
         >
-
-
             <inertia-link :href="route('home')"
                           class="d-flex align-center justify-center text-decoration-none mr-1">
                 <v-avatar flat size="50" color="transparent" :aspect-ratio="1">

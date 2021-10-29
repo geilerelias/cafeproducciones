@@ -17,8 +17,9 @@
 
 
     <meta name="keywords"
-          content="cafeproducciones, cafe producciones, eventos, logistica, producciones, luces, sonidos, pirotecnia, la guajira, riohacha"/>
-    <meta name="author" content="GEILER ELIAS RADILLO SARMIENTO"/>
+          content="cafeproducciones, cafe producciones, eventos, logistica, producciones, luces, sonidos, pirotecnia, la guajira, riohacha,
+                   Event Planner. Organización, producción y logística de eventos Riohacha - La Guajira Servicios nacionales"/>
+    <meta name="author" content="GENNER RADILLO SARMIENTO, CARMEN BARROS DIAS y GEILER ELIAS RADILLO SARMIENTO"/>
     <meta name="copyright" content="cafeproducciones.com"/>
 
     <title>{{ config('app.name', 'Laravel') }}</title>

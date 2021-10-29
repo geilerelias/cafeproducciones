@@ -15,14 +15,6 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/app-bar', function () {
-    return Inertia\Inertia::render('AppBar');
-});
-
-Route::get('/app-bar2', function () {
-    return Inertia\Inertia::render('AppBar2');
-});
-
 Route::get('/welcome', function () {
     return view('welcome');
 });

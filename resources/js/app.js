@@ -27,6 +27,9 @@ import 'vue2-perfect-scrollbar/dist/vue2-perfect-scrollbar.css'
 //v-video-embed
 import Embed from 'v-video-embed'
 
+// animate.css
+import 'animate.css';
+
 // global register
 Vue.use(Embed);
 

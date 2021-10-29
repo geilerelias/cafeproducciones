@@ -49,7 +49,6 @@ export default {
 
         pictureDatas: [],
         items: [
-
             {
                 "title": "Transmisiones en vivo",
                 "name": "envivo.jpg",
