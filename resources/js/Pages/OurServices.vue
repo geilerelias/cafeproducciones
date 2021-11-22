@@ -1,5 +1,6 @@
 <template>
     <page-layout>
+
         <v-sheet>
             <v-container class="py-6">
                 <div class="text-center mb-6">
@@ -20,63 +21,74 @@
                     </v-responsive>
                 </div>
 
-                <v-row v-if="$vuetify.breakpoint.mdAndUp">
+                <v-row>
                     <v-col class="col col-12">
-                        <div class="d-flex justify-space-between align-end  flex-wrap">
+                        <div class="d-flex flex-column flex-sm-row justify-space-between align-sm-end flex-sm-wrap">
                             <div>
                                 <h2>Explorar</h2>
-                                <h6 class="grey--text grey--lighten-3 font-weight-regular">
+                                <h6 class="grey--text grey--lighten-3 font-weight-regular trun">
                                     Listado de los principales servicios que ofrece CAFE producciones
                                 </h6>
                             </div>
+                            <div>
+                                <v-text-field
+                                    ref="search"
+                                    v-model="search"
+                                    full-width
+                                    hide-details
+                                    label="Search"
+                                    single-line
+                                    class="mx-auto"
+                                ></v-text-field>
+
+                            </div>
                         </div>
                     </v-col>
+                </v-row>
 
-
-                    <v-col v-for="item in services" :key="item.id"
+                <v-row v-if="$vuetify.breakpoint.mdAndUp">
+                    <v-col v-for="(item, index) in services" :key="item.id"
                            class="col-sm-6 col-md-4 col-lg-3 col-12">
-                        <v-card light class="br-10 " height="179px" :aspect-ratio="16/9"
-                                @click="$vuetify.goTo(`#${item.name}`,{duration: '900',offset: '0',easing: 'easeInOutCubic'})">
-                            <v-scale-transition>
-                                <v-img cover class="p-relative"
-                                       height="179px"
-                                       gradient="rgba(0, 0, 0, 0), rgb(0 0 0 / 0%), rgb(0 0 0 / 65%), rgb(0, 0, 0)"
+
+                        <v-hover v-slot="{ hover }">
+                            <v-card light class="br-10 " color="grey darken-2" :aspect-ratio="1/1"
+                                    @click="$vuetify.goTo(`#${item.name}`,{duration: '900',offset: '0',easing: 'easeInOutCubic'})">
+                                <v-img cover
+                                       :aspect-ratio="1/1"
+                                       style="transition: all 0.5s;"
+                                       :class="hover ? 'zoom' : ''"
+                                       @load="item.gradient=true"
+                                       :gradient="item.gradient?'rgba(0, 0, 0, 0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.65), rgb(0, 0, 0)':''"
                                        :src="item.firtImage">
                                     <div class="p-absolute bottom-0 pa-5">
                                         <h5 class="white--text">
                                             {{ item.title }}
                                         </h5>
                                         <div class="d-flex">
-                                            <p class="text-sm white--text mb-0">{{ item.images.length }} Imagenes</p>
+                                            <p class="text-sm white--text mb-0">{{ item.images.length }}
+                                                Imagenes</p>
                                             <v-icon size="16"
                                                     class="white--text">
                                                 mdi-chevron-right
                                             </v-icon>
                                         </div>
                                     </div>
-
                                     <template v-slot:placeholder>
-                                        <v-row
+                                        <v-skeleton-loader
                                             class="fill-height ma-0"
-                                            align="center"
-                                            justify="center"
-                                        >
-                                            <v-progress-circular
-                                                indeterminate
-                                                color="primary"
-                                            ></v-progress-circular>
-                                        </v-row>
+                                            type="image"
+                                        ></v-skeleton-loader>
                                     </template>
                                 </v-img>
-                            </v-scale-transition>
-                        </v-card>
+                            </v-card>
+                        </v-hover>
                     </v-col>
                 </v-row>
 
                 <v-list v-else two-line link>
                     <template v-for="(item, index) in services">
                         <v-list-item :key="item.title"
-                                     @click="$vuetify.goTo(`#${item.name}`,{duration: '900',offset: '0',easing: 'easeInOutCubic'})">
+                                     @click=" $vuetify.goTo(`#${item.name}`,{duration:'900',offset: '0',easing: 'easeInOutCubic'})">
                             <v-list-item-avatar>
                                 <v-img :src="item.firtImage">
                                     <template v-slot:placeholder>
@@ -128,7 +140,7 @@
 
 
                 <div class="" v-for="(item,n) in services" :key="item.id" :id="item.name">
-                    <v-card outlined class="my-2" :color="$vuetify.breakpoint.smAndDown?'':'transparent'" >
+                    <v-card outlined class="my-2" :color="$vuetify.breakpoint.smAndDown?'':'transparent'">
                         <div class="d-flex flex-column flex-md-row" :class="{'flex-md-row-reverse':n%2===0}">
                             <div class="w-full w-md-half d-flex align-center">
                                 <div class="pa-6 pa-md-12">
@@ -139,7 +151,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <v-sheet class="w-full w-md-half  rounded pa-5" :class="$vuetify.breakpoint.smAndDown?'':'elevation-6'" :aspect-ratio="1">
+                            <v-sheet class="w-full w-md-half  rounded pa-5"
+                                     :class="$vuetify.breakpoint.smAndDown?'':'elevation-6'" :aspect-ratio="1">
                                 <lightbox :items="item.images" :cells="3"></lightbox>
                             </v-sheet>
                         </div>
@@ -186,31 +199,8 @@ export default {
         Lightbox
     },
     data: () => ({
-        icons: ['mdi-rewind', 'mdi-play', 'mdi-fast-forward'],
-        items: [
-            {
-                title: 'New Releases',
-                text: `It's New Release Friday`,
-                subtext: 'Newly released songs. Updated daily.',
-                img: 'https://images.unsplash.com/photo-1429514513361-8fa32282fd5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3264&q=80',
-            },
-            {
-                title: 'Rock',
-                text: 'Greatest Rock Hits',
-                subtext: 'Lose yourself in rock tunes.',
-                img: 'https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
-            },
-            {
-                title: 'Mellow Moods',
-                text: 'Ambient Bass',
-                subtext: 'Chill beats to mellow you out.',
-                img: 'https://images.unsplash.com/photo-1542320868-f4d80389e1c4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=3750&q=80',
-            },
-        ],
-        transparent: 'rgba(255, 255, 255, 0)',
-
-
-        services: [
+        search: '',
+        allservices: [
             {
                 name: 'transmision',
                 title: "Transmisión de eventos en vivo o diferido",
@@ -222,7 +212,8 @@ export default {
                 cualquier parte del mundo, podrá acompañar las actividades de forma práctica, original y
                 atrayente.`,
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'sonido',
@@ -240,7 +231,8 @@ export default {
                     ' optimizar los tiempos de montaje así como también los costos y es adaptable a casi cualquier tipo de superficie.'
                 ,
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'pirotecnia',
@@ -250,7 +242,8 @@ export default {
                     'momentos especiales de nuestros clientes pueden convertirse en extraordinarios con espectáculos ' +
                     'de pirotecnia sin importar el tamaño del festejo o la cantidad de invitados.',
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'vallas',
@@ -258,7 +251,8 @@ export default {
                 description: 'Se colocan en lugares públicos abiertos y/o cerrados  para delimitar espacios con motivo ' +
                     'de eventos temporales, como espectaculos, desfiles o procesiones, son en tubo galvanizado de 1.40 de alto X 2 mts de ancho con base de 60 mm, calibre de 1 ¼ ',
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'personal',
@@ -268,7 +262,8 @@ export default {
                     'etc.) Para hacer frente con éxito a múltiples tareas, debe comprender los diferentes componentes de' +
                     ' un plan de logística para un evento y elaborar un plan de logística de eventos efectivo.',
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'moviliarios',
@@ -276,7 +271,8 @@ export default {
                 description: 'sabemos que cada cliente así como cada actividad es diferente, Por tal motivo le ofrecemos' +
                     ' alternativas innovadoras en estructuras como toldos y carpas, pisos, trussesde aluminio, stands y más.',
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'filmacion',
@@ -286,14 +282,16 @@ export default {
                     'vídeo interactivo, pasando por todo un abanico de servicios con diferentes finalidades: promocionar ' +
                     'la empresa, un perfil profesional, presentaciones de proyectos.',
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'refrigerios',
                 title: "Refrigerios",
                 description: 'Ofrecemos servicios de Brunch o Refrigerios de todo tipo para su empresa, pensado específicamente para cursos, seminarios o reuniones empresariales, con alimentos que deleitarán el paladar de sus empleados y/o clientes.',
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'pantallas',
@@ -303,7 +301,8 @@ export default {
                 <br/>
                 Nuestro servicio de Alquiler de Pantallas  incluye el traslado, armado y desarmado de las pantallas y, opcionalmente, la operación de las mismas.`,
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'iluminacion',
@@ -312,7 +311,8 @@ export default {
                 hora de organizarlos. Necesitas tener claro qué atmósfera quieres crear, ya que de la manera que
                 ilumines tu evento dependerá el ambiente que se genere.`,
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'piso-led',
@@ -323,7 +323,8 @@ export default {
                 Es ideal para escenarios o pistas de baile en discos, eventos, salones y fiestas, o pisos de stands en
                 exposiciones, o pasarelas en desfiles. Transmiten todo tipo de contenido y efectos luminosos.`,
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
             {
                 name: 'escenografia',
@@ -333,7 +334,8 @@ export default {
                 Con mas de 5 años de trayectoria diseño & comunicación desarrollando proyectos de escenografía de alto
                 nivel con un equipo multidisciplinario con vasta experiencia que garantizan el mejor de los resultados.`,
                 images: [],
-                firtImage: ''
+                firtImage: '',
+                gradient: false,
             },
 
         ],
@@ -366,20 +368,22 @@ export default {
         active: null
     }),
     computed: {
-        allservices: {
-            get() {
-                return this.services;
-            },
-            set(x) {
-                this.services = x;
-            }
-        },
+        services() {
+            const search = this.search.toLowerCase()
 
+            if (!search) return this.allservices
+
+            return this.allservices.filter(item => {
+                return item.name.toLowerCase().indexOf(search) > -1
+                    || item.title.toLowerCase().indexOf(search) > -1
+                    || item.description.toLowerCase().indexOf(search) > -1
+            })
+        },
     },
     created() {
         var lista = [];
-        for (let s = 0; s < this.services.length; s++) {
-            let folder = this.services[s].name;
+        for (let s = 0; s < this.allservices.length; s++) {
+            let folder = this.allservices[s].name;
             console.log(folder)
             axios
                 .get(`/services/${folder}`)
@@ -394,8 +398,8 @@ export default {
                         images.push(`/src/services/${folder}/${lista[i]}`);
                         console.log(`/src/services/${folder}/${lista[i]}`)
                     }
-                    this.services[s].images = images;
-                    this.services[s].firtImage = firtImage;
+                    this.allservices[s].images = images;
+                    this.allservices[s].firtImage = firtImage;
                 })
                 .catch(error => {
                     console.log(error);
@@ -473,5 +477,17 @@ export default {
     /*background-image: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(0,0,0,1) 50%, transparent 100%);*/
 }
 
+/*zoom en imagenes*/
+.v-image .v-image__image {
+    transition: all 0.6s;
+}
+
+.v-image.zoom .v-image__image {
+    transform: scale(1.2);
+}
+
+div.v-image__placeholder > div > div {
+    height: 100% !important;
+}
 
 </style>

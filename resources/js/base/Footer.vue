@@ -86,7 +86,6 @@
                         <div class="d-flex flex-column flex-lg-row w-full">
                             <v-text-field dense single-line solo outlined enclosed is-booted light
                                           class="mr-lg-2" label="Your email">
-
                             </v-text-field>
                             <v-btn is-elevated light large
                                    class="secondary">
