@@ -4,6 +4,7 @@ import 'vuetify/dist/vuetify.min.css'
 
 Vue.use(Vuetify)
 
+
 const opts = {
     icons: {
         iconfont: 'mdi', // default - only for display purposes

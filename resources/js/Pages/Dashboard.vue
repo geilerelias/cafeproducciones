@@ -2,7 +2,7 @@
     <app-layout>
         <v-container fluid>
             <v-row dense xl>
-                <v-col v-for="item in items" :key="item.title" :cols="cols">
+                <v-col v-for="item in items" :key="item.title">
                     <v-hover
                         v-slot:default="{ hover }"
                         open-delay="100"
@@ -24,14 +24,15 @@
                                 }}
                             </v-card-subtitle>
                             <v-card-actions>
-                                <v-btn
-                                    color="purple"
-                                    text
-                                    link
-                                    :to="item.route"
-                                >
-                                    Explorar
-                                </v-btn>
+                                <inertia-link :href="item.route">
+                                    <v-btn
+                                        color="purple"
+                                        text
+                                        link
+                                    >
+                                        Explorar
+                                    </v-btn>
+                                </inertia-link>
 
                                 <v-spacer></v-spacer>
 
@@ -76,6 +77,7 @@ import project from '@/../images/project.jpg'
 import cursos from '@/../images/cursos.jpg'
 import students from '@/../images/students.jpg'
 import roles from '@/../images/roles.jpg'
+
 export default {
     components: {
         AppLayout,

@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\PersonController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,14 +61,26 @@ Route::get('/gallery', function () {
 
 
 Route::resource('posts', PostController::class);
+
+Route::get('/role/all', [RoleController::class, 'all']);
+Route::post('/role/assign/permissions', [RoleController::class, 'assignPermissions']);
+Route::get('/role/{name}/permissions', [RoleController::class, 'getPermissions']);
+Route::resource('role', RoleController::class);
+
+Route::resource('user', UserController::class);
+Route::resource('person', PersonController::class);
+
+Route::get('/permission/all', [PermissionController::class, 'all']);
+Route::resource('permission', PermissionController::class);
+
 Route::resource('products', ProductController::class);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia\Inertia::render('Dashboard');
 })->name('dashboard');
 
-Route::get('/{page}/{folder?}', function ($page,$folder) {
-    $directory = base_path() . '/resources/images/'.$page.'/' . $folder;
+Route::get('/find/{page}/{folder?}', function ($page, $folder) {
+    $directory = base_path() . '/resources/images/' . $page . '/' . $folder;
     $dirint = dir($directory);
     $images = array();
     while (($archivo = $dirint->read()) !== false) {
@@ -74,10 +90,6 @@ Route::get('/{page}/{folder?}', function ($page,$folder) {
     }
     $dirint->close();
     return json_encode($images);
-});
-
-Route::get('/user/{name?}/algo', function ($name = 'radillo') {
-    return $name;
 });
 
 Route::get('/src/{page}/{folder?}/{filename}', function ($page, $folder = "null", $filename) {

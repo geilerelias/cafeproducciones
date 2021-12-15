@@ -44,6 +44,12 @@ const store = new Vuex.Store({
             {route: "notices", icon: 'mdi-bulletin-board', title: "Noticias"},
             {route: "services", icon: 'mdi-face-agent', title: "Servicios"},
             {route: "gallery", icon: 'mdi-movie-play-outline', title: "Galería"},
+           // {route: "posts.index", icon: 'mdi-note-text-outline', title: "Post"},
+            {route: "user.index", icon: 'mdi-account-tie', title: "User"},
+            {route: "person.index", icon: 'mdi-account', title: "Person"},
+            {route: "role.index", icon: 'mdi-shield-account', title: "Roles"},
+            {route: "permission.index", icon: 'mdi-badge-account-outline', title: "Permisos"},
+
         ]
     },
     getters: {

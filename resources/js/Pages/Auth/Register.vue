@@ -64,6 +64,20 @@
                                         ref="form"
                                         v-model="valid"
                                 >
+
+                                    <v-alert
+                                        v-if="$page.errors.email"
+                                        text
+                                        prominent
+                                        type="error"
+                                        icon="mdi-alert"
+                                        dismissible
+                                    >
+                                        {{$page.errors.email[0]}}
+                                    </v-alert>
+
+
+
                                     <v-text-field
                                         dense
                                         v-model="form.name"
@@ -144,6 +158,7 @@ import bg from '@/../images/bg/6.jpg';
 
 export default {
     name: "Register",
+    props: ['errors'],
     data: () => ({
         bg: bg,
         logo: logo,

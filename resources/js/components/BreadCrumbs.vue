@@ -9,7 +9,23 @@
                         v-slot:extension>
                         <v-breadcrumbs class="px-0 mx-0"
                                        :items="items"
-                        ></v-breadcrumbs>
+                        >
+                            <template v-slot:item="{ item }">
+                                <v-breadcrumbs-item v-if="item.disabled"
+                                                    :disabled="item.disabled"
+                                >
+                                    {{ item.text }}
+                                </v-breadcrumbs-item>
+
+                                <inertia-link v-else :href="item.href">
+                                    <v-breadcrumbs-item
+                                        :disabled="item.disabled"
+                                    >
+                                        {{ item.text }}
+                                    </v-breadcrumbs-item>
+                                </inertia-link>
+                            </template>
+                        </v-breadcrumbs>
                     </template>
                 </v-toolbar>
             </v-card>

@@ -380,13 +380,15 @@ export default {
             })
         },
     },
+
     created() {
         var lista = [];
         for (let s = 0; s < this.allservices.length; s++) {
             let folder = this.allservices[s].name;
             console.log(folder)
+
             axios
-                .get(`/services/${folder}`)
+                .get(`/find/services/${folder}`)
                 .then(response => {
                     lista = response.data;
                     let images = [];
@@ -408,25 +410,6 @@ export default {
 
     },
     methods: {
-        getImages(folder) {
-            var images = [];
-            var lista = [];
-            console.log(folder)
-            axios
-                .get(`/services/${folder}`)
-                .then(response => {
-                    lista = response.data;
-                    for (let i = 0; i < lista.length; i++) {
-
-                        images.push(`/storage/${folder}/${lista[i]}`);
-                        console.log(`/storage/${folder}/${lista[i]}`)
-                    }
-                    return images;
-                })
-                .catch(error => {
-                    console.log(error);
-                });
-        },
         getImage(item) {
             if (item.images === undefined) {
                 console.log("nada que mostrar")

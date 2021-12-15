@@ -10,6 +10,7 @@ import PortalVue from 'portal-vue';
 
 //mis importaciones
 import vuetify from '../plugins/vuetify'
+
 import {InertiaProgress} from '@inertiajs/progress'
 import VueSweetalert2 from 'vue-sweetalert2';
 // If you don't need the styles, do not connect

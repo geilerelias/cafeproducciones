@@ -1,5 +1,5 @@
 <template>
-    <page-layout>
+    <app-layout>
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Manage Post - (Laravel 8 Inertia JS CRUD with Jetstream & Tailwind CSS - ItSolutionStuff.com)
@@ -70,7 +70,7 @@
                                                        id="exampleFormControlInput1" placeholder="Enter Title"
                                                        v-model="form.title">
                                                 <div v-if="$page.errors.title" class="text-red-500">{{
-                                                    $page.errors.title[0]
+                                                        $page.errors.title[0]
                                                     }}
                                                 </div>
                                             </div>
@@ -82,7 +82,7 @@
                                                     id="exampleFormControlInput2" v-model="form.body"
                                                     placeholder="Enter Body"></textarea>
                                                 <div v-if="$page.errors.body" class="text-red-500">{{
-                                                    $page.errors.body[0]
+                                                        $page.errors.body[0]
                                                     }}
                                                 </div>
                                             </div>
@@ -119,15 +119,15 @@
                 </div>
             </div>
         </div>
-    </page-layout>
+    </app-layout>
 </template>
 <script>
-import PageLayout from './../Layouts/PageLayout'
+import AppLayout from './../Layouts/AppLayout'
 import Welcome from './../Jetstream/Welcome'
 
 export default {
     components: {
-        PageLayout,
+        AppLayout,
         Welcome,
     },
     props: ['data', 'errors'],

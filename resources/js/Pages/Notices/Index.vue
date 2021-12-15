@@ -2,7 +2,9 @@
     <app-layout>
         <bread-crumbs name="Noticias" :items="items"></bread-crumbs>
         <v-container>
-
+            <div class="hello">
+                {{ msg }}
+            </div>
         </v-container>
     </app-layout>
 </template>
@@ -17,6 +19,7 @@ export default {
         BreadCrumbs,
     },
     data: () => ({
+        msg: 'One',
         items: [
             {
                 text: 'Dashboard',
@@ -29,6 +32,13 @@ export default {
                 href: '/notices',
             },
         ],
-    })
+    }),
+    mounted() {
+        this.msg = 'Two';
+
+        this.$nextTick(() => {
+            this.msg = 'Three';
+        });
+    }
 }
 </script>
